@@ -1,0 +1,183 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: black;
+  color: lime;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.todo-container {
+  background: rgb(20, 20, 20);
+  padding: 30px;
+  border-radius: 14px;
+  width: 500px;
+  box-shadow: 0 0 25px lime;
+  animation: fadeIn 0.8s ease;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: lime;
+  text-shadow: 0 0 12px lime, 0 0 25px lime;
+  animation: glowPulse 2s infinite;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid lime;
+  border-radius: 8px;
+  background: black;
+  color: lime;
+  font-size: 1em;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+input:focus {
+  box-shadow: 0 0 12px lime;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: lime;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+}
+button:hover {
+  background: green;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px lime;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.filter-btn {
+  flex: 1;
+  margin: 0 4px;
+  background: transparent;
+  border: 1px solid lime;
+  border-radius: 6px;
+  padding: 6px;
+  color: lime;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: lime;
+  color: black;
+}
+
+ul { list-style: none; }
+
+li {
+  background: rgb(15, 15, 15);
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeInUp 0.4s ease;
+  border: 1px solid lime;
+  box-shadow: 0 0 10px transparent;
+  transition: box-shadow 0.3s;
+}
+li:hover {
+  box-shadow: 0 0 12px lime;
+}
+li.completed {
+  background: rgb(0, 60, 0);
+  opacity: 0.85;
+  box-shadow: 0 0 15px lime;
+  transition: background 0.5s ease, opacity 0.5s ease;
+}
+li.completed .task-text {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 6px lime;
+}
+
+.task-text {
+  flex: 1;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: lime;
+  color: black;
+}
+.edit-btn:hover {
+  background: green;
+  box-shadow: 0 0 10px lime;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+}
+.delete-btn:hover {
+  background: darkred;
+  transform: scale(1.1);
+}
+
+.stats-bar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid lime;
+}
+
+#clearCompletedBtn {
+  background: transparent;
+  border: 1px solid lime;
+  color: lime;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+}
+#clearCompletedBtn:hover {
+  background: lime;
+  color: black;
+  box-shadow: 0 0 10px lime;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 12px lime, 0 0 25px lime; }
+  50% { text-shadow: 0 0 20px lime, 0 0 40px lime; }
+}
